@@ -60,7 +60,7 @@ extern "C"
 /*!
  * Indicates if a random devnonce must be used or not
  */
-#define USE_RANDOM_DEV_NONCE                        0
+#define USE_RANDOM_DEV_NONCE                        1
 
 /*!
  * Indicates if JoinNonce is counter based and requires to be checked on 1.0.x devices

@@ -1549,7 +1549,7 @@ static void LoRaMacHandleRequestEvents( void )
     // Handle events
     LoRaMacFlags_t reqEvents = MacCtx.MacFlags;
 
-    if( MacCtx.MacState == LORAMAC_IDLE )
+    if( MacCtx.MacState == LORAMAC_IDLE || MacCtx.MacState == LORAMAC_STOPPED )
     {
         // Update event bits
         if( MacCtx.MacFlags.Bits.McpsReq == 1 )

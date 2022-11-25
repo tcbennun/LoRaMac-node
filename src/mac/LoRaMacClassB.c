@@ -919,6 +919,9 @@ static void LoRaMacClassBProcessBeacon( void )
             // Stop slot timers
             LoRaMacClassBStopRxSlots( );
 
+            // The goal is to calculate beaconRxConfig.WindowTimeout and beaconRxConfig.WindowOffset
+            CalculateBeaconRxWindowConfig( &beaconRxConfig, Ctx.BeaconCtx.SymbolTimeout );
+
             // Don't use the default channel. We know on which
             // channel the next beacon will be transmitted
             RxBeaconSetup( CLASSB_BEACON_RESERVED, false, beaconRxConfig.WindowTimeout );

@@ -41,6 +41,8 @@
 #include "LoRaMacSerializer.h"
 #include "LoRaMacCrypto.h"
 
+#include <esp_random.h>
+
 /*
  * Frame direction definition for uplink communications
  */
@@ -987,8 +989,7 @@ LoRaMacCryptoStatus_t LoRaMacCryptoPrepareJoinRequest( LoRaMacMessageJoinRequest
 
     // Add device nonce
 #if ( USE_RANDOM_DEV_NONCE == 1 )
-    uint32_t devNonce = 0;
-    SecureElementRandomNumber( &devNonce );
+    uint32_t devNonce = esp_random();
     CryptoNvm->DevNonce = devNonce;
 #else
     CryptoNvm->DevNonce++;

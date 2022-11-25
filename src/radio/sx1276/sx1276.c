@@ -1785,6 +1785,7 @@ static void SX1276OnDio0Irq( void* context )
 
 static void SX1276OnDio1Irq( void* context )
 {
+    int pin_state = (int) context;
     switch( SX1276.Settings.State )
     {
         case RF_RX_RUNNING:
@@ -1797,7 +1798,7 @@ static void SX1276OnDio1Irq( void* context )
                 // verify DIO1 pin state in order to decide if something has to be done.
                 // When radio is operating in FSK reception mode a rising edge must be detected in order to handle the
                 // IRQ.
-                if( SX1276GetDio1PinState( ) == 0 )
+                if( pin_state == 0 )
                 {
                     break;
                 }
@@ -1844,7 +1845,7 @@ static void SX1276OnDio1Irq( void* context )
                 // verify DIO1 pin state in order to decide if something has to be done.
                 // When radio is operating in LoRa reception mode a rising edge must be detected in order to handle the
                 // IRQ.
-                if( SX1276GetDio1PinState( ) == 0 )
+                if( pin_state == 0 )
                 {
                     break;
                 }
@@ -1873,7 +1874,7 @@ static void SX1276OnDio1Irq( void* context )
                 // verify DIO1 pin state in order to decide if something has to be done.
                 // When radio is operating in FSK transmission mode a falling edge must be detected in order to handle
                 // the IRQ.
-                if( SX1276GetDio1PinState( ) == 1 )
+                if( pin_state == 1 )
                 {
                     break;
                 }

@@ -86,7 +86,8 @@ extern "C"
 /*!
  * LoRaWAN version definition.
  */
-#define LORAMAC_VERSION                             0x01010100
+// #define LORAMAC_VERSION                             0x01010100
+#define LORAMAC_VERSION                             0x01000300
 
 /*!
  * LoRaWAN fallback version definition.

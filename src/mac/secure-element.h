@@ -209,6 +209,8 @@ SecureElementStatus_t SecureElementSetPin( uint8_t* pin );
  */
 uint8_t* SecureElementGetPin( void );
 
+SecureElementStatus_t SecureElementRandomNumber( uint32_t* randomNum );
+
 /*! \} defgroup SECUREELEMENT */
 
 #ifdef __cplusplus
